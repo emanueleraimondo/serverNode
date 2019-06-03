@@ -45,7 +45,7 @@ app.post('/registrazione', function(req, res) {
             if (err2) throw err2;
             console.log(result);
             res.send(result);
-            alert("registrazione eseguita");
+
            console.log("ciao3");
         });
     });
@@ -57,7 +57,7 @@ app.post('/login', function(req, res) {
     var username = req.query.username;
     var pass = req.query.password;
 
-    var stat; //no
+
 
     conn.connect(function(err) {
         if (err) throw err;
@@ -65,6 +65,7 @@ app.post('/login', function(req, res) {
             if (err) throw err;
             if(result.length != 0){
                 res.send(result);
+
                 console.log("Login effettuato");
             }else{
                 res.send(false);
