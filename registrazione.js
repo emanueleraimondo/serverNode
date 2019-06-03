@@ -45,7 +45,30 @@ app.post('/registrazione', function(req, res) {
             if (err2) throw err2;
             console.log(result);
             res.send(result);
+            alert("registrazione eseguita");
            console.log("ciao3");
+        });
+    });
+})
+
+
+app.post('/login', function(req, res) {
+
+    var username = req.query.username;
+    var pass = req.query.password;
+
+    var stat; //no
+
+    conn.connect(function(err) {
+        if (err) throw err;
+        conn.query('SELECT ID FROM registrazione WHERE username = "' + username + '" AND psw = "' + pass + '"', function(err, result, fields) {
+            if (err) throw err;
+            if(result.length != 0){
+                res.send(result);
+                console.log("Login effettuato");
+            }else{
+                res.send(false);
+            }
         });
     });
 })
