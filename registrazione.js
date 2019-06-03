@@ -8,20 +8,20 @@ app.use(bodyParser.json())
 
 const cors = require('cors');
 
-var cookieParser = require('cookie-parser');
+//var cookieParser = require('cookie-parser');
 
 app.use(cors());
 
-var MongoClient = require('mongodb').MongoClient;
-var Client = require('node-rest-client').Client;
-var client = new Client();
+//var MongoClient = require('mongodb').MongoClient;
+//var Client = require('node-rest-client').Client;
+//var client = new Client();
 
 
 var mysql = require('mysql');
 var conn = mysql.createConnection({
-    host: "db4free.net",
+    host: "www.db4free.net",
     password: "Suprema2000",
-    database: "raimondomysql",
+    database: "raimondosql",
     user: "emarai00"
     });
 
@@ -37,7 +37,7 @@ app.post('/registrazione', function(req, res) {
 
     var stat; //no
 
-
+  console.log("ciao");
 
     conn.connect(function(err) {
         if (err) throw err;
@@ -45,7 +45,7 @@ app.post('/registrazione', function(req, res) {
             if (err2) throw err2;
             console.log(result);
             res.send(result);
-
+           console.log("ciao3");
         });
     });
 })
